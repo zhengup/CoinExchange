@@ -15,8 +15,9 @@
     <module>trading-api</module>
     <module>trading-engine</module>
     <module>trading-sequencer</module>
-    <module>ui</module>
     <module>build</module>
+    <module>parent</module>
+    <module>ui</module>
   </modules>
 
   <parent>
@@ -25,69 +26,69 @@
     <version>3.0.0</version>
   </parent>
 
-  <properties>
-    <project.version>1.0</project.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+<!--  <properties>-->
+<!--    <project.version>1.0</project.version>-->
+<!--    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>-->
+<!--    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>-->
 
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
-    <java.version>21</java.version>
+<!--    <maven.compiler.source>17</maven.compiler.source>-->
+<!--    <maven.compiler.target>17</maven.compiler.target>-->
+<!--    <java.version>21</java.version>-->
 
-    <pebble.version>3.2.0</pebble.version>
-    <springcloud.version>2022.0.0</springcloud.version>
-    <springdoc.version>2.0.0</springdoc.version>
-    <vertx.version>4.3.1</vertx.version>
-  </properties>
+<!--    <pebble.version>3.2.0</pebble.version>-->
+<!--    <springcloud.version>2022.0.0</springcloud.version>-->
+<!--    <springdoc.version>2.0.0</springdoc.version>-->
+<!--    <vertx.version>4.3.1</vertx.version>-->
+<!--  </properties>-->
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.cloud</groupId>
-        <artifactId>spring-cloud-dependencies</artifactId>
-        <version>${springcloud.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+<!--  <dependencyManagement>-->
+<!--    <dependencies>-->
+<!--      <dependency>-->
+<!--        <groupId>org.springframework.cloud</groupId>-->
+<!--        <artifactId>spring-cloud-dependencies</artifactId>-->
+<!--        <version>${springcloud.version}</version>-->
+<!--        <type>pom</type>-->
+<!--        <scope>import</scope>-->
+<!--      </dependency>-->
+<!--    </dependencies>-->
+<!--  </dependencyManagement>-->
 
-  <!-- 共享的依赖管理 -->
-  <dependencies>
-    <!-- 依赖JUnit5 -->
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-params</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.junit.jupiter</groupId>
-      <artifactId>junit-jupiter-engine</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <!-- 依赖SpringTest -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-test</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+<!--  &lt;!&ndash; 共享的依赖管理 &ndash;&gt;-->
+<!--  <dependencies>-->
+<!--    &lt;!&ndash; 依赖JUnit5 &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-api</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-params</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>org.junit.jupiter</groupId>-->
+<!--      <artifactId>junit-jupiter-engine</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--    &lt;!&ndash; 依赖SpringTest &ndash;&gt;-->
+<!--    <dependency>-->
+<!--      <groupId>org.springframework</groupId>-->
+<!--      <artifactId>spring-test</artifactId>-->
+<!--      <scope>test</scope>-->
+<!--    </dependency>-->
+<!--  </dependencies>-->
 
-  <build>
-    <pluginManagement>
-      <plugins>
-        <!-- 引入创建可执行Jar的插件 -->
-        <plugin>
-          <groupId>org.springframework.boot</groupId>
-          <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-  </build>
+<!--  <build>-->
+<!--    <pluginManagement>-->
+<!--      <plugins>-->
+<!--        &lt;!&ndash; 引入创建可执行Jar的插件 &ndash;&gt;-->
+<!--        <plugin>-->
+<!--          <groupId>org.springframework.boot</groupId>-->
+<!--          <artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--        </plugin>-->
+<!--      </plugins>-->
+<!--    </pluginManagement>-->
+<!--  </build>-->
 
 </project>
