@@ -36,3 +36,6 @@ build/
 
 ### Mac OS ###
 .DS_Store
+
+### 项目自定义目录忽略规则
+/docker/docker/
