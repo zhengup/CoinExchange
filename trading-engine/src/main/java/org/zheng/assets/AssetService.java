@@ -5,7 +5,7 @@ import org.zheng.enums.AssetEnum;
 import org.zheng.support.LoggerSupport;
 
 import java.math.BigDecimal;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
@@ -117,4 +117,13 @@ public class AssetService extends LoggerSupport {
             logger.debug("unfreezed user {}, asset {}, amount {}", userId, assetId, amount);
         }
     }
+    public void debug(){
+        System.out.println("---------asset module debug---------");
+        List<Long> userIds = new ArrayList<>(userAssets.keySet());
+        Collections.sort(userIds);
+        for(Long userId : userIds){
+            System.out.println(userId + "\t" + userAssets.get(userId).keySet());
+        }
+    }
+
 }
