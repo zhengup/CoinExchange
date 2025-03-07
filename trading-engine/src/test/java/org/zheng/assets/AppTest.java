@@ -8,6 +8,8 @@ import org.zheng.enums.AssetEnum;
 
 import java.math.BigDecimal;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 /**
  * Unit test for simple App.
  */
@@ -41,15 +43,49 @@ public class AppTest extends TestCase {
     }
     @Test
     void tryFreeze(){
+        // freeze 120000 ok:
+        service.tryFreeze(USER_A, AssetEnum.USD, new BigDecimal("120000"));
+        assertBDEquals(3321, service.getAsset(USER_A, AssetEnum.USD).available);
+        assertBDEquals(120000, service.getAsset(USER_A, AssetEnum.USD).frozen);
 
+        // freeze 3321 failed:
+        assertFalse(service.tryFreeze(USER_A, AssetEnum.USD, new BigDecimal("3322")));
+        assertBDEquals(3321, service.getAsset(USER_A, AssetEnum.USD).available);
+        assertBDEquals(120000, service.getAsset(USER_A, AssetEnum.USD).frozen);
     }
     @Test
     void unfreeze(){
+        // freeze 120000 ok:
+        service.tryFreeze(USER_A, AssetEnum.USD, new BigDecimal("120000"));
+        assertBDEquals(3321, service.getAsset(USER_A, AssetEnum.USD).available);
+        assertBDEquals(120000, service.getAsset(USER_A, AssetEnum.USD).frozen);
 
+        // unfreeze 9000 ok:
+        service.unfreeze(USER_A, AssetEnum.USD, new BigDecimal("90000"));
+        assertBDEquals(93321, service.getAsset(USER_A, AssetEnum.USD).available);
+        assertBDEquals(30000, service.getAsset(USER_A, AssetEnum.USD).frozen);
+
+        // unfreeze 3001 failed:
+        assertThrows(RuntimeException.class, () -> {
+            service.unfreeze(USER_A, AssetEnum.USD, new BigDecimal("93322"));
+        });
     }
     @Test
     void transfer(){
+        // A USD -> A frozen:
+        service.transfer(Transfer.AVAILABLE_TO_FROZEN, USER_A, USER_A, AssetEnum.USD, new BigDecimal("120000"));
+        assertBDEquals(3321, service.getAsset(USER_A, AssetEnum.USD).available);
+        assertBDEquals(120000, service.getAsset(USER_A, AssetEnum.USD).frozen);
 
+        // A frozen -> C available:
+        service.transfer(Transfer.FROZEN_TO_AVAILABLE, USER_A, USER_C, AssetEnum.USD, new BigDecimal("80000"));
+        assertBDEquals(40000, service.getAsset(USER_A, AssetEnum.USD).frozen);
+        assertBDEquals(80000, service.getAsset(USER_C, AssetEnum.USD).available);
+
+        // A frozen -> B available failed:
+        assertThrows(RuntimeException.class, () -> {
+            service.transfer(Transfer.FROZEN_TO_AVAILABLE, USER_A, USER_B, AssetEnum.USD, new BigDecimal("40001"));
+        });
     }
 
     void init() throws Exception {

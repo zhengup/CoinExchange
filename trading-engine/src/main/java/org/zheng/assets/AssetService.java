@@ -47,6 +47,9 @@ public class AssetService extends LoggerSupport {
 
     //转账操作:转账类型，from/to，转账类型，转账数值，余额检查
     public boolean tryTransfer(Transfer type, Long fromUser, Long toUser, AssetEnum assetId, BigDecimal amount, boolean checkBalance) {
+        if(amount.signum() == 0){
+            return true;
+        }
         if(amount.signum() < 0){
             throw new IllegalArgumentException("钱不够啦");
         }
@@ -82,7 +85,7 @@ public class AssetService extends LoggerSupport {
                 if(checkBalance && fromAsset.frozen.compareTo(amount) < 0){
                     yield false;
                 }
-                fromAsset.frozen = toAsset.frozen.subtract(amount);
+                fromAsset.frozen = fromAsset.frozen.subtract(amount);
                 toAsset.available = toAsset.available.add(amount);
                 yield true;
             }
