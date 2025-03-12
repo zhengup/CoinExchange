@@ -41,7 +41,7 @@ public class MatchEngineTest {
             MatchResult mr = this.engine.processOrder(order.sequenceId, order);
             matches.addAll(mr.matchDetails);
         }
-        assertArrayEquals(new MatchDetailRecord[] { //
+        assertArrayEquals(new MatchDetailRecord[]{ //
                 new MatchDetailRecord(bd("12305.39"), bd("0.11"), orders.get(2), orders.get(1)), //
                 new MatchDetailRecord(bd("12305.39"), bd("0.22"), orders.get(3), orders.get(1)), //
                 new MatchDetailRecord(bd("12300.21"), bd("0.11"), orders.get(3), orders.get(0)), //
