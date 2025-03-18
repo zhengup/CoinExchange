@@ -17,7 +17,7 @@ import org.zheng.util.JsonUtil;
 import java.io.IOException;
 import java.util.*;
 
-//消息类型
+//处理消息
 @Component
 public class MessageTypes {
 
