@@ -1,4 +1,6 @@
 package org.zheng.messaging;
 
-public class MessageConsumer {
+@FunctionalInterface
+public interface MessageConsumer {
+    void stop();
 }

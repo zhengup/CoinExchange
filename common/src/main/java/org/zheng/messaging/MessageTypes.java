@@ -2,6 +2,7 @@ package org.zheng.messaging;
 
 
 import jakarta.annotation.PostConstruct;
+import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.BeanDefinition;
@@ -66,6 +67,13 @@ public class MessageTypes {
         List<AbstractMessage> list = new ArrayList<>(dataList.size());
         for (String data : dataList) {
             list.add(deserialize(data));
+        }
+        return list;
+    }
+    public List<AbstractMessage> deserializeConsumerRecords(List<ConsumerRecord<String, String>> dataList) {
+        List<AbstractMessage> list = new ArrayList<>(dataList.size());
+        for (ConsumerRecord<String, String> data : dataList) {
+            list.add(deserialize(data.value()));
         }
         return list;
     }
