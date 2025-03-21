@@ -1,4 +1,4 @@
-package org.zheng.web.api;
+package org.zheng;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;

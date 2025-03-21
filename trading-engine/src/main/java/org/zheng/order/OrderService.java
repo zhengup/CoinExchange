@@ -70,8 +70,8 @@ public class OrderService {
     public OrderEntity getOrder(long orderId) {
         return this.activeOrders.get(orderId);
     }
-    public ConcurrentMap<Long, ConcurrentMap<Long, OrderEntity>> getUserOrders() {
-        return this.userOrders;
+    public ConcurrentMap<Long,  OrderEntity> getUserOrders(Long userId) {
+        return this.userOrders.get(userId);
     }
 
     //删除活动的订单
