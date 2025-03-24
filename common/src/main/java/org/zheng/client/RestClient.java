@@ -22,6 +22,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
+import org.springframework.stereotype.Component;
 import org.zheng.ApiErrorResponse;
 import org.zheng.ApiException;
 import org.zheng.enums.ApiError;

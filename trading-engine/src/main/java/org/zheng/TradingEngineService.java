@@ -38,7 +38,7 @@ import org.zheng.store.StoreService;
 import org.zheng.support.LoggerSupport;
 import org.zheng.util.IpUtil;
 import org.zheng.util.JsonUtil;
-import org.zheng.util.RedisCache;
+import org.zheng.redis.RedisCache;
 
 import java.math.BigDecimal;
 import java.time.Instant;

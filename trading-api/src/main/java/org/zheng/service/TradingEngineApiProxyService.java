@@ -3,6 +3,7 @@ package org.zheng.service;
 
 import okhttp3.*;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.zheng.ApiException;
 import org.zheng.enums.ApiError;
 import org.zheng.support.LoggerSupport;
@@ -10,6 +11,7 @@ import org.zheng.support.LoggerSupport;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
+@Component
 public class TradingEngineApiProxyService extends LoggerSupport {
 
     @Value("#{exchangeConfiguration.apiEndpoints.tradingEngineApi}")

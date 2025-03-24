@@ -1,4 +1,4 @@
-package org.zheng.util;
+package org.zheng.redis;
 
 public interface RedisCache {
 

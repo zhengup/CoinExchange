@@ -14,7 +14,7 @@ import org.zheng.model.support.EntitySupport;
 
 @Entity
 @Table(name = "ticks", uniqueConstraints = @UniqueConstraint(name = "UNI_T_M", columnNames = { "takerOrderId",
-        "makerOrderId" }), indexes = @Index(name = "IDX_CAT", columnList = "createdAt"))
+        "makerOrderId" }), indexes = @Index(name = "IDX_CAT", columnList = "createTime"))
 public class TickEntity implements EntitySupport {
 
     @Id

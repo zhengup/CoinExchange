@@ -1,4 +1,4 @@
-package org.zheng.web;
+package org.zheng;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
